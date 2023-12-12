@@ -1,0 +1,1 @@
+docker run --name cqrs -e POSTGRES_PASSWORD=cqrs -d postgres
