@@ -22,4 +22,11 @@ public class UnpublishedDancingEvents {
     public EventOrganizerId eventOrganizerId() {
         return this.eventOrganizerId;
     }
+
+    public List<DancingEvent> unpublishedDancingEvents() {
+        return this.unpublishedDancingEvents.stream()
+                .map(DancingEvent::copy)
+                .toList();
+    }
+
 }

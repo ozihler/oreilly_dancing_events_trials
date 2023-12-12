@@ -16,15 +16,17 @@ public class InMemoryCreateDancingEventShould extends InjectableTest {
 
     @Test
     void create_a_new_dancing_event() {
-
         var useCase = new CreateDancingEventUseCase(dancingEventRepository);
-
         var input = new CreateDancingEventCommand("1", "My great new event", "Some words of what to expect from the event", "2021-01-01");
 
         useCase.execute(input);
 
         var unpublishedDancingEvents = dancingEventRepository.fetchForEventOrganizerWithId(new EventOrganizerId("1"));
-
         assertEquals(1, unpublishedDancingEvents.count());
+
+        var newDancingEvent = unpublishedDancingEvents.unpublishedDancingEvents().get(0);
+        assertEquals(input.eventTitle(), newDancingEvent.title().value());
+        assertEquals(input.eventDescription(), newDancingEvent.description().value());
+        assertEquals(input.eventDate(), newDancingEvent.eventDate().value());
     }
 }
