@@ -19,20 +19,20 @@ public class CreateDancingEventUseCase implements CreateDancingEvent {
     @Override
     public void execute(CreateDancingEventCommand input) {
         try {
-        var eventOrganizerId = new EventOrganizerId(input.eventOrganizerId());
+            var eventOrganizerId = new EventOrganizerId(input.eventOrganizerId());
 
-        var unpublishedDancingEvents = dancingEventRepository
-                .fetchUnpublishedDancingEventsFor(eventOrganizerId);
+            var unpublishedDancingEvents = dancingEventRepository
+                    .fetchUnpublishedDancingEventsFor(eventOrganizerId);
 
-        var dancingEvent = new DancingEvent(
-                DancingEventId.newRandomId(),
-                new Title(input.eventTitle()),
-                new Description(input.eventDescription()),
-                new EventDate(input.eventDate()));
+            var dancingEvent = new DancingEvent(
+                    DancingEventId.newRandomId(),
+                    new Title(input.eventTitle()),
+                    new Description(input.eventDescription()),
+                    new EventDate(input.eventDate()));
 
-        unpublishedDancingEvents.add(dancingEvent);
+            unpublishedDancingEvents.add(dancingEvent);
 
-        dancingEventRepository.update(unpublishedDancingEvents);
+            dancingEventRepository.update(unpublishedDancingEvents);
 
         } catch (Exception e) {
             throw new DancingEventCreationFailed(e);
