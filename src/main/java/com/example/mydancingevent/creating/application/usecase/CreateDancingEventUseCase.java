@@ -6,7 +6,9 @@ import com.example.mydancingevent.creating.application.port.CreateDancingEventCo
 import com.example.mydancingevent.creating.application.port.DancingEventRepository;
 import com.example.mydancingevent.creating.domain.entity.DancingEvent;
 import com.example.mydancingevent.creating.domain.value.*;
+import org.springframework.stereotype.Service;
 
+@Service
 public class CreateDancingEventUseCase implements CreateDancingEvent {
     private final DancingEventRepository dancingEventRepository;
 
