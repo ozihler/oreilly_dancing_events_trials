@@ -1,4 +1,4 @@
-package com.example.mydancingevent.create;
+package com.example.mydancingevent.create.domain.value;
 
 import java.util.UUID;
 

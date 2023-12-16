@@ -1,4 +1,7 @@
-package com.example.mydancingevent.create;
+package com.example.mydancingevent.create.domain.aggregate;
+
+import com.example.mydancingevent.create.domain.entity.DancingEvent;
+import com.example.mydancingevent.create.domain.value.EventOrganizerId;
 
 import java.util.ArrayList;
 import java.util.List;
