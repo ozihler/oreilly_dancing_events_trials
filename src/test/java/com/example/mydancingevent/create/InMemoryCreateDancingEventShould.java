@@ -1,6 +1,7 @@
 package com.example.mydancingevent.create;
 
-import com.example.mydancingevent.create.application.usecase.CreateDancingEventCommand;
+import com.example.mydancingevent.create.adapter.dataaccess.InMemoryDancingEventRepository;
+import com.example.mydancingevent.create.application.port.CreateDancingEventCommand;
 import com.example.mydancingevent.create.application.usecase.CreateDancingEventUseCase;
 import com.example.mydancingevent.create.domain.value.EventOrganizerId;
 import com.example.mydancingevent.create.testing.InjectableTest;
@@ -14,7 +15,7 @@ public class InMemoryCreateDancingEventShould extends InjectableTest {
 
     @BeforeEach
     void init() {
-        dancingEventRepository = new FakeDancingEventRepository();
+        dancingEventRepository = new InMemoryDancingEventRepository();
     }
 
     @Test
