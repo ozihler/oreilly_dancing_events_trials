@@ -9,7 +9,7 @@ public class FakeDancingEventRepository implements DancingEventRepository {
     private final Map<EventOrganizerId, UnpublishedDancingEvents> unpublishedDancingEvents = new HashMap<>();
 
     @Override
-    public UnpublishedDancingEvents fetchForEventOrganizerWithId(EventOrganizerId eventOrganizerId) {
+    public UnpublishedDancingEvents fetchUnpublishedDancingEventsFor(EventOrganizerId eventOrganizerId) {
         if (!unpublishedDancingEvents.containsKey(eventOrganizerId)) {
             unpublishedDancingEvents.put(eventOrganizerId, new UnpublishedDancingEvents(eventOrganizerId));
         }

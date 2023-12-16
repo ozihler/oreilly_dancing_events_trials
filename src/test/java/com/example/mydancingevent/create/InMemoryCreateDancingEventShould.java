@@ -21,7 +21,7 @@ public class InMemoryCreateDancingEventShould extends InjectableTest {
 
         useCase.execute(input);
 
-        var unpublishedDancingEvents = dancingEventRepository.fetchForEventOrganizerWithId(new EventOrganizerId("1"));
+        var unpublishedDancingEvents = dancingEventRepository.fetchUnpublishedDancingEventsFor(new EventOrganizerId("1"));
         assertEquals(1, unpublishedDancingEvents.count());
 
         var newDancingEvent = unpublishedDancingEvents.unpublishedDancingEvents().get(0);

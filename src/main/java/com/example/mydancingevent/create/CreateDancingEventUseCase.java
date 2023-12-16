@@ -8,10 +8,18 @@ public class CreateDancingEventUseCase {
     }
 
     public void execute(CreateDancingEventCommand input) {
-        UnpublishedDancingEvents unpublishedDancingEvents = dancingEventRepository
-                .fetchForEventOrganizerWithId(new EventOrganizerId(input.eventOrganizerId()));
+        var eventOrganizerId = new EventOrganizerId(input.eventOrganizerId());
 
-        unpublishedDancingEvents.add(new DancingEvent(DancingEventId.newRandomId(), new Title(input.eventTitle()), new Description(input.eventDescription()), new EventDate(input.eventDate())));
+        var unpublishedDancingEvents = dancingEventRepository
+                .fetchUnpublishedDancingEventsFor(eventOrganizerId);
+
+        var dancingEvent = new DancingEvent(
+                DancingEventId.newRandomId(),
+                new Title(input.eventTitle()),
+                new Description(input.eventDescription()),
+                new EventDate(input.eventDate()));
+
+        unpublishedDancingEvents.add(dancingEvent);
 
         dancingEventRepository.update(unpublishedDancingEvents);
     }

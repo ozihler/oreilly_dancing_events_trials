@@ -1,7 +1,7 @@
 package com.example.mydancingevent.create;
 
 public interface DancingEventRepository {
-    UnpublishedDancingEvents fetchForEventOrganizerWithId(EventOrganizerId eventOrganizerId);
+    UnpublishedDancingEvents fetchUnpublishedDancingEventsFor(EventOrganizerId eventOrganizerId);
 
     void update(UnpublishedDancingEvents unpublishedDancingEvents);
 }
