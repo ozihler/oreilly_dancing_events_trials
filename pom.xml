@@ -9,7 +9,7 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.example</groupId>
-	<artifactId>cqrs-demo</artifactId>
+	<artifactId>clean-architecture-demo</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>cqrs-demo</name>
 	<description>cqrs-demo</description>
